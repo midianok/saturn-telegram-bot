@@ -1,9 +1,13 @@
 import { Bot } from "grammy";
+import { welcome } from "./operations/welcome.js";
 
-const bot = new Bot("1169135083:AAEB4aWHBo6FHa3F3-qNvMmQczPYhPF2dME"); // <-- put your bot token between the ""
+const bot = new Bot("1169135083:AAEB4aWHBo6FHa3F3-qNvMmQczPYhPF2dME");
 
+bot.command("start", welcome);
+bot.use((ctx, next) => next());
 
-bot.command("start", (ctx) => ctx.reply("Welcome! Up and running."));
-bot.on("message", (ctx) => ctx.reply("Got another message!"));
+bot.on("message", (ctx) => {
+    ctx.reply(ctx.message.text)
+});
 
-bot.start();
+bot.start()
