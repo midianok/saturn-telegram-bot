@@ -7,7 +7,8 @@ bot.command("start", welcome);
 bot.use((ctx, next) => next());
 
 bot.on("message", (ctx) => {
-    ctx.reply(ctx.message.text)
+    ctx.reply(ctx.message.text);
+    console.log(ctx.message.text);
 });
 
 bot.start()
