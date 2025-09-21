@@ -4,7 +4,8 @@
   "description": "",
   "main": "bot.js",
   "scripts": {
-    "start": "tsc && node dist/bot.js"
+    "start": "tsc && node dist/bot.js",
+    "generate-client": "swagger-typescript-api generate  --api-class-name=\"SaturnClient\" --clean-output --name=\"SaturnClient.ts\" --path http://localhost:5000/swagger/v1/swagger.json"
   },
   "keywords": [],
   "author": "",
@@ -12,6 +13,7 @@
   "type": "module",
   "devDependencies": {
     "@types/node": "^24.3.0",
+    "swagger-typescript-api": "^13.2.13",
     "typescript": "^5.9.2"
   },
   "dependencies": {
