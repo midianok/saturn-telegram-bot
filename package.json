@@ -13,10 +13,12 @@
   "type": "module",
   "devDependencies": {
     "@types/node": "^24.3.0",
+    "prisma": "^6.16.2",
     "swagger-typescript-api": "^13.2.13",
     "typescript": "^5.9.2"
   },
   "dependencies": {
+    "@prisma/client": "^6.16.2",
     "grammy": "^1.38.1"
   }
 }

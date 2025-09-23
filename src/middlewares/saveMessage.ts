@@ -1,10 +1,15 @@
 import { Context, NextFunction } from "grammy";
 import { ApiConfig, SaturnClient, SaveMessageDto} from "../httpClients/SaturnClient.js";
+import { PrismaClient } from '@prisma/client'
+
 
 export default async function saveMessage(ctx: Context, next: NextFunction) {
     const client = new SaturnClient<ApiConfig>({
         baseUrl: "http://localhost:5000",
     });
+    const prisma = new PrismaClient();
+
+    const t2 = await prisma.users.findFirst();
     const saveMessageDto: SaveMessageDto = {
         messageId: ctx.message?.message_id,
         messageText: ctx.message?.text || null,
